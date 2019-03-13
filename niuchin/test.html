@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, Paper, Scissors Game</title>
+        <meta charset="utf-8">
+        <link href="style.css" type="text/css" rel="stylesheet">
+    
+    </head>
+
+    <body>
+        <h2><strong>CHINGUASPUL</strong><br><br> ROCK / PAPER / SCISSORS</h2>
+        <p>
+        <img src="rocks1.jpg" width = "300" height = "300">
+        <img src="papers1.jpg" width = "300" height = "300">
+        <img src="scissors1.jpg" width = "300" height = "300">
+        <br>
+        <img src="rocks2.jpg" width = "300" height = "300">
+        <img src="papers2.jpg" width = "300" height = "300">
+        <img src="scissors2.jpg" width = "300" height = "300">
+        </p>
+
+        <script>
+        
+        const gamenum = prompt("Please enter the number of games you wish to play");
+        const options = ["rock", "paper", "scissors"];
+        const check = ["rockrock", "rockpaper", "rockscissors", "paperrock", "paperpaper", "paperscissors",
+                      "scissorsrock", "scissorspaper", "scissorsscissors"];
+        let win = 0;
+        let lose = 0;
+        let tie = 0;
+        let play;
+        let msg;     
+        
+        function gameon (a, b) {
+            let x = a + b;
+            if (x == check[0]  || x == check [4]  || x == check[8]) {
+                msg = "Tie!";
+                tie++;
+            }
+            else if (x == check[1] || x == check[5] || x == check[6]) {
+                msg = "U kinda just got owned...";
+                lose++;
+            }
+            else if (x == check[2] || x == check[3] || x == check[7]) {
+                msg = "Aye! Winner winner pollito con papas dinner!"
+                win++;
+            }
+            else {
+                msg = "Do you hate the game or the player?"
+            }
+            return msg;
+        }
+        
+        for (i = 0; i < gamenum; i++) {
+          function computerPlay () {
+            play = options[Math.round(2*Math.random())];
+            return play;
+            }
+
+          let computerSelection = computerPlay();
+          let playerSelection = (prompt("Please enter your move")).toLowerCase();
+        
+          (gameon(playerSelection, computerSelection));
+        
+
+        window.alert("Computer played "+ computerSelection + ". You played " + playerSelection +". " + msg);
+        }
+
+        window.alert("Out of " + gamenum + " games, computer won " + lose + " games, you won " +
+         win + " games, and " + tie + " games were tied. You won " + Math.floor(100*win/gamenum) + "% of games!");
+        
+        if (win == lose){
+            window.alert("TIE")
+        } else if (lose > win){
+            window.alert("AI beat you!")
+        } else if (win > lose){
+           window.alert("You beat randomness!")
+        }
+        </script>
+    </body>
+</html>
