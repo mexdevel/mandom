@@ -4,37 +4,25 @@ const pScore = document.getElementById('playerScore');
 const cScore = document.getElementById('compScore');
 const tieGames = document.getElementById('ties');
 const startGame = document.getElementById('begin');
-
-
-
-
  
-
-    btns.forEach((button)=>{
-        button.addEventListener('click', ()=>{
-            gameRound(button.id);
-        });
+btns.forEach((button)=>{
+    button.addEventListener('click', ()=>{
+        gameRound(button.id);
     });
+});
+
+function computerPlay(){
+    let options = ['rock', 'paper', 'scissors'];
+    let randomOption = Math.floor(Math.random() * 3);
+return options[randomOption];
+}
 
  
 let playerScore = 0;
 let computerScore = 0;
 let tie = 0;
 
-function computerPlay(){
-options = ['rock', 'paper', 'scissors'];
-randomOption = Math.floor(Math.random() * 3);
-return options[randomOption];
-}
 
- 
-
-
-// function playerPlay(){
-// let choice = prompt('Rock, Paper, Scissors');
-// choice.toLowerCase();
-// return choice;
-// }
 
 function gameRound(playerpick){
 let computerpick = computerPlay();

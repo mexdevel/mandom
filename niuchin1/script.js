@@ -1,19 +1,18 @@
+let btns = document.querySelectorAll('button');
 let win = 0;
 let lose = 0;
 let tie = 0;
 let play;
 let msg;     
 let computerSelection = computerPlay();
-let playerSelection = usrpk;
+let playerSelection;
 
-buttons.forEach((button) => {
-	button.addEventListener('click', (e) => {
-		playerSelection = button.id;
-    computerSelection = computerPlay();
-    gameon(playerSelection, computerSelection);
-  }}
-
-
+btns.forEach((button)=>{
+  button.addEventListener('click', ()=>{
+  playerSelection = button.id;
+  gameon(playerSelection, computerSelection);    
+  });
+});
 
 const options = ["rock", "paper", "scissors"];
         const check = ["rockrock", "rockpaper", "rockscissors", "paperrock", "paperpaper", "paperscissors",
