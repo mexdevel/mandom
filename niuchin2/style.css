@@ -2,9 +2,13 @@ body{
     text-align: center;
 }
 
-button{
+.bchoices{
     font-size: 42px;
     margin-left: 93px;
     margin-right: 93px;
     border: 10px;
+}
+
+.breset{
+    font-size: 21px;
 }
