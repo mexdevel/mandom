@@ -1,37 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Rock, Paper, Scissors Game</title>
-        <meta charset="utf-8">
-        <link href="style.css" type="text/css" rel="stylesheet">
-    
-    </head>
+let win = 0;
+let lose = 0;
+let tie = 0;
+let play;
+let msg;     
+let computerSelection = computerPlay();
+let playerSelection = usrpk;
 
-    <body>
-        <h2><strong>CHINGUASPUL</strong><br><br> ROCK / PAPER / SCISSORS</h2>
-        <p>
-        <img src="rocks1.jpg" width = "300" height = "300">
-        <img src="papers1.jpg" width = "300" height = "300">
-        <img src="scissors1.jpg" width = "300" height = "300">
-        <br>
-        <img src="rocks2.jpg" width = "300" height = "300">
-        <img src="papers2.jpg" width = "300" height = "300">
-        <img src="scissors2.jpg" width = "300" height = "300">
-        </p>
+buttons.forEach((button) => {
+	button.addEventListener('click', (e) => {
+		playerSelection = button.id;
+    computerSelection = computerPlay();
+    gameon(playerSelection, computerSelection);
+  }}
 
-        <script>
-        
-        const gamenum = prompt("Please enter the number of games you wish to play");
-        const options = ["rock", "paper", "scissors"];
+
+
+const options = ["rock", "paper", "scissors"];
         const check = ["rockrock", "rockpaper", "rockscissors", "paperrock", "paperpaper", "paperscissors",
                       "scissorsrock", "scissorspaper", "scissorsscissors"];
-        let win = 0;
-        let lose = 0;
-        let tie = 0;
-        let play;
-        let msg;     
-        
+
+      
+      
+        function computerPlay () {
+          play = options[Math.round(2*Math.random())];
+          return play;
+          }
+
         function gameon (a, b) {
+          computerPlay();
             let x = a + b;
             if (x == check[0]  || x == check [4]  || x == check[8]) {
                 msg = "Tie!";
@@ -51,16 +47,9 @@
             return msg;
         }
         
-        for (i = 0; i < gamenum; i++) {
-          function computerPlay () {
-            play = options[Math.round(2*Math.random())];
-            return play;
-            }
 
-          let computerSelection = computerPlay();
-          let playerSelection = (prompt("Please enter your move")).toLowerCase();
-        
-          (gameon(playerSelection, computerSelection));
+
+          
         
 
         window.alert("Computer played "+ computerSelection + ". You played " + playerSelection +". " + msg);
@@ -76,6 +65,5 @@
         } else if (win > lose){
            window.alert("You beat randomness!")
         }
-        </script>
-    </body>
-</html>
+
+
